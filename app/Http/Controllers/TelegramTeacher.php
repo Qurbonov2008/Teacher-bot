@@ -43,6 +43,9 @@ class TelegramTeacher extends Controller
         {
 
 
+
+            # Bu botdan maqsad boshlangich darajadagi o'quvchilarga yordam berish
+
             $user = Register::where('chat_id' , $chatId)->first();
             if($user)
             {
