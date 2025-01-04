@@ -37,6 +37,17 @@ class TelegramTeacher extends Controller
                 'username' => $username,
                 'chat_id' => $chatId,
             ]);
+
+            Telegram::sendMessage([
+             'chat_id' => $chatId,
+            'text' => 'Siz muvaffaqiyatli ro'yxatdan o'tdingiz',
+             'reply_markup' => json_encode(
+                 'keyboard' => [
+                 [['text' => '📋 Kurs tanlash'] , ['text' => '💬 O'qituvchilik qilish']],
+                 ]
+             )
+            
+            ])
         }
 
         if($messageText === '/start')
@@ -54,9 +65,7 @@ class TelegramTeacher extends Controller
                 'text' => $usertext,
                 'reply_markup' => json_encode([
                     'keyboard' => [
-                        [['text' => '📋 Mahsulot sotib olish'], ['text' => '💬 Buyurtmalar ro\'yxati']],
-                        [['text' => '⚙️ Sozlamalar'], ['text' => '📞 Yordam']],
-                        [['text' => '📝 Profil'], ['text' => '❌ Buyurtmani bekor qilish']],
+                        [['text' => '📋 Kurs tanlash'], ['text' => '💬 O'qituvchilik qilish']],
                     ],
                     'resize_keyboard' => true,
                     'one_time_keyboard' => false
